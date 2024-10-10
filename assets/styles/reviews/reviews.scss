@@ -1,0 +1,137 @@
+@import "../vars";
+@import "../templates";
+@import "../header";
+@import "../footer";
+
+.main {
+  &__title {
+    margin: 100px 10%;
+    @include title;
+    @media (max-width: $tablet) {
+      margin: 50px 5%;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  row-gap: 80px;
+  width: 80%;
+  margin: 0 10% 100px;
+  @media (max-width: $tablet) {
+    row-gap: 50px;
+    width: 90%;
+    margin: 0 5% 50px;
+  }
+  &__review {
+    display: flex;
+    @media (max-width: $mobile) {
+      display: none;
+    }
+    &--first {
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: stretch;
+    }
+    &--middle {
+      align-items: center;
+      justify-content: space-between;
+      column-gap: 80px;
+      @media (max-width: $tablet) {
+        flex-direction: column;
+        row-gap: 50px;
+      }
+    }
+    &--last {
+      align-items: center;
+      justify-content: space-between;
+      column-gap: 80px;
+      @media (max-width: $tablet) {
+        flex-direction: column;
+        row-gap: 50px;
+      }
+    }
+  }
+  &__paragraph {
+    display: flex;
+    align-items: center;
+    flex-shrink: 1;
+    width: calc(1 / 2 * 100% - (1 - 1 / 2) * 30px);
+    height: 100%;
+    padding: 20px;
+    @include paragraph;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: left;
+    border: 3px solid $bg-color-dark;
+    border-radius: 10px;
+    @media (max-width: $tablet) {
+      width: 100%;
+    }
+    @media (max-width: $mobile) {
+      font-size: 18px;
+    }
+    &--first {
+      width: 100%;
+    }
+    &--middle {
+      background: $bg-color-light;
+      &:nth-child(2) {
+        @media (max-width: $tablet) {
+          background: $text-light;
+        }
+      }
+    }
+    &--last:nth-child(1) {
+      @media (max-width: $tablet) {
+        background: $bg-color-light;
+      }
+    }
+  }
+}
+
+.carousel {
+  display: none;
+  @media (max-width: $mobile) {
+    display: block;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    .carousel-item {
+      vertical-align: middle;
+      min-height: 500px;
+      padding: 40px;
+      @include paragraph;
+      font-size: 22px;
+      line-height: 27px;
+      text-align: left;
+      background: $bg-color-light;
+      border: 3px solid $bg-color-dark;
+      border-radius: 10px;
+    }
+    #carousel-item-first {
+      @extend .carousel-item;
+      font-size: 16px;
+    }
+    .carousel-indicators {
+      position: static;
+      column-gap: 8px;
+      padding-top: 40px;
+      button {
+        width: 7px;
+        height: 7px;
+        background-color: transparent;
+        border: 1px solid $bg-color-dark;
+        border-radius: 50%;
+      }
+      button.active {
+        background-color: $bg-color-accent;
+        border: transparent;
+      }
+    }
+  }
+}

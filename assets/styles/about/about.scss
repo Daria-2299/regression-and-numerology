@@ -1,0 +1,107 @@
+@import "../vars";
+@import "../templates";
+@import "../header";
+@import "../footer";
+
+.content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+  width: 80%;
+  margin: 100px auto 50px;
+  @media (max-width: $tablet) {
+    row-gap: 20px;
+    width: 90%;
+    margin: 100px auto 30px;
+  }
+  @media (max-width: $mobile) {
+    margin: 50px auto 30px;
+  }
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    column-gap: 6%;
+    @media (max-width: $tablet) {
+      column-gap: 30px;
+    }
+    @media (max-width: $mobile) {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      height: 20%;
+    }
+  }
+  &__photo {
+    @include content-photo;
+    @media (max-width: $mobile) {
+      order: 2;
+    }
+  }
+  &__paragraph {
+    @include paragraph;
+    font-size: 30px;
+    @media (max-width: $tablet) {
+      font-size: 24px;
+    }
+    @media (max-width: $mobile) {
+      font-size: 18px;
+      text-align: center;
+      order: 1;
+    }
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 50px 6%;
+  width: 80%;
+  margin: 0 auto 50px;
+  @media (max-width: $tablet) {
+    grid-template-rows: repeat(2, min-content);
+    width: 90%;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  @media (max-width: $mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+    padding: 30px;
+    background-color: $bg-color-accent;
+    border: 3px solid $bg-color-dark;
+    border-radius: 6px;
+    @media (max-width: $tablet) {
+      padding: 20px;
+      column-gap: 20px;
+    }
+  }
+  &__icon {
+    height: 72px;
+    width: 72px;
+    @media (max-width: $tablet) {
+      height: 50px;
+      width: 50px;
+    }
+  }
+  &__text {
+    @include text-accent;
+    @media (max-width: $tablet) {
+      font-size: 22px;
+    }
+    @media (max-width: $mobile) {
+      font-size: 20px;
+    }
+  }
+}
+.consultation {
+  @include consultation-container;
+}

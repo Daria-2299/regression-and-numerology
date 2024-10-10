@@ -1,0 +1,117 @@
+@import "../vars";
+@import "../templates";
+@import "../header";
+@import "../footer";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  .main {
+    flex-grow: 1;
+    &__title {
+      margin: 100px 10%;
+      @include title;
+      @media (max-width: $tablet) {
+        margin: 50px 5%;
+      }
+    }
+  }
+}
+
+.contacts {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+  @media (max-width: $tablet) {
+    margin-bottom: 50px;
+  }
+  @media (max-width: $mobile) {
+    width: 90%;
+    margin: 0 auto 50px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+    @media (max-width: $tablet) {
+      row-gap: 40px;
+    }
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    column-gap: 40px;
+    @extend %contacts-text;
+    text-decoration: none;
+    @media (max-width: $tablet) {
+      column-gap: 20px;
+      font-size: 30px;
+    }
+    @media (max-width: $mobile) {
+      column-gap: 14px;
+      font-size: 20px;
+    }
+    &:hover {
+      background: $bg-color-light;
+      box-shadow: $header-shadow;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    &--first {
+      &::before {
+        content: "";
+        width: 72px;
+        height: 72px;
+        background-image: url("../../images/contacts/group-icon.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        @media (max-width: $tablet) {
+          width: 60px;
+          height: 60px;
+        }
+        @media (max-width: $mobile) {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+    &--second {
+      &::before {
+        content: "";
+        width: 72px;
+        height: 72px;
+        background-image: url("../../images/contacts/wa-icon.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        @media (max-width: $tablet) {
+          width: 60px;
+          height: 60px;
+        }
+        @media (max-width: $mobile) {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+    &--third {
+      &::before {
+        content: "";
+        width: 72px;
+        height: 72px;
+        background-image: url("../../images/contacts/tg-icon.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        @media (max-width: $tablet) {
+          width: 60px;
+          height: 60px;
+        }
+        @media (max-width: $mobile) {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+}
